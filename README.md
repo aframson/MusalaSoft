@@ -49,16 +49,16 @@ GET http://localhost:3000/api/gateway/v1/fetch
 
 
 ## Get a specific gateway:
-GET http://localhost:3000/api/gateway/v1/{{gatewayId}} // ex: http://localhost:8080/gateways/Syhhvc455
+GET http://localhost:3000/api/gateway/v1/{{serial_number}} // ex: http://localhost:8080/gateways/Syhhvc455
 
 
 ## Add a device to a gateway
-POST http://localhost:3000/api/gateway/v1/add_device/{{GatewayId}}
+POST http://localhost:3000/api/gateway/v1/add_device/{{serial_number}}
 body: {<br>
 "vendor": "string", // ex: Vendor A<br>
 "status": "online|offline" // ex: online<br>
 }
 
 ## Remove a device from a gateway
-DELETE http://localhost:8080/gateways/{serial}/device/{device_uid} // ex: http://localhost:8080/gateways/AbC123/device/1
+DELETE http://localhost:8080/gateways/{serial_number}/device/{device_uid} // ex: http://localhost:8080/gateways/AbC123/device/1
 
