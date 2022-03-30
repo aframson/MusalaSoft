@@ -1,0 +1,1 @@
+export  const DB_URL = 'mongodb+srv://aframson:aframson77@cluster0.60glt.mongodb.net/aframson?retryWrites=true&w=majority';
