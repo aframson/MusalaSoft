@@ -2,8 +2,18 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, clone the repository and install dependencies:
 
+```bash
+git clone https://github.com/aframson/MusalaSoft.git
+
+cd Musala Soft
+
+npm install 
+or
+yarn
+```
+run the development server after installation is successfull:
 ```bash
 npm run dev
 # or
@@ -12,23 +22,43 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `pages/api/...`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Description
+REST service (JSON/HTTP) for storing information about gateways and their associated devices.<br>
+- Programming language: JavaScript
+- Framework: Nextjs (React)
+- Database: MongoDb
+- Automated build: Vercel
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Open [The Documentation](https://documenter.getpostman.com/view/6960062/UVypyGgK) To test and read more on the API
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+# Endpoints:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Create a gateway:
+POST http://localhost:3000/api/gateway/v1/create<br>
+body: {<br>
+"serial": "string", //a unique serial number ex: AbC123<br>
+"name": "string", //a human-readable name ex: Gateway A<br>
+"ip": "string" //an IPv4 address ex: 10.0.0.1<br>
+}
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Get all stored gateways:
+GET http://localhost:3000/api/gateway/v1/fetch
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Get a specific gateway:
+GET http://localhost:3000/api/gateway/v1/{{gatewayId}} // ex: http://localhost:8080/gateways/Syhhvc455
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Add a device to a gateway
+POST http://localhost:3000/api/gateway/v1/add_device/{{GatewayId}}
+body: {<br>
+"vendor": "string", // ex: Vendor A<br>
+"status": "online|offline" // ex: online<br>
+}
+
+## Remove a device from a gateway
+DELETE http://localhost:8080/gateways/{serial}/device/{device_uid} // ex: http://localhost:8080/gateways/AbC123/device/1
+
