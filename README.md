@@ -53,12 +53,12 @@ GET http://localhost:3000/api/gateway/v1/{{serial_number}} // ex: http://localho
 
 
 ## Add a device to a gateway
-POST http://localhost:3000/api/gateway/v1/add_device/{{serial_number}}
+PUT http://localhost:3000/api/gateway/v1/add_device/{{serial_number}}
 body: {<br>
 "vendor": "string", // ex: Vendor A<br>
 "status": "online|offline" // ex: online<br>
 }
 
 ## Remove a device from a gateway
-DELETE http://localhost:8080/gateways/{serial_number}/device/{device_uid} // ex: http://localhost:8080/gateways/AbC123/device/1
+DELETE http://localhost:8080/gateways/{serial_number}/device/{device_uid} // ex: http://localhost:3000/api/gateway/v1/remove_device/bdsiud54645765dfs/device/1838190
 
