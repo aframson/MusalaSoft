@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const { method } = req;
 
     if (method == 'GET') {
-        GateDataMain.findById(id, (err, data) => {
+        GateDataMain.find({serial_number:id}, (err, data) => {
             if (err) {
                 res.status(500).json({
                     status: 'error',

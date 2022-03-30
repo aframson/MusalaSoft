@@ -19,14 +19,14 @@ export default async function handler(req, res) {
 
 
     if (method == 'PUT') {
-        GateDataMain.findByIdAndUpdate(gatewayId, {$push:{
+        GateDataMain.findOneAndUpdate({serial_number:gatewayId}, {$push:{
             devices: {
                 uid_number:UniqueNumber,
                 vendor:req.body.vendor,
                 dateCreated:date,
                 status:req.body.status
             }}
-        }, { new: true, runValidators: true }, (err, data) => {
+        }, { new: true, runValidators: false }, (err, data) => {
             if (err) {
                 res.status(500).json({
                     status: 'error',

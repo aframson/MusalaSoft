@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     const { method } = req;
 
     if (method == 'DELETE') {
-        GateDataMain.findByIdAndUpdate(gatewayId,{$pull:{devices: {uid_number:parseInt(id)}}
+        GateDataMain.findOneAndUpdate({serial_number:gatewayId},{$pull:{devices: {uid_number:parseInt(id)}}
         }, { new: true, runValidators: true }, (err, data) => {
             if (err) {
                 res.status(500).json({
