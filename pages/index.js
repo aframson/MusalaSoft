@@ -13,7 +13,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Richard Obiri <a href="https://nextjs.org">Assignment!</a>
+          Richard Obiri <a href="#">Assignment!</a>
         </h1>
 
         <p className={styles.description}>
@@ -22,14 +22,14 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
+          <a href="https://documenter.getpostman.com/view/6960062/UVypyGgK" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about API Request and Responses</p>
           </a>
         
         
           <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="https://musalasoft.vercel.app"
             className={styles.card}
           >
             <h2>Deploy &rarr;</h2>
